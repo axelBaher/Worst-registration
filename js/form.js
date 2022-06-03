@@ -29,3 +29,20 @@ function inputDataEncoding(inputIdx) {
             break;
     }
 }
+function inputSelect(inputIdx) {
+    switch (inputIdx) {
+        case 1:
+            document.getElementById("input_name").value = "";
+            break;
+        case 2:
+            document.getElementById("input_surname").value = "";
+            document.getElementById("input_surnameConfirmation").value = "";
+            break;
+        case 3:
+            document.getElementById("input_phoneNumber").value = "";
+            break;
+        case 4:
+            document.getElementById("input_email").value = "";
+            break;
+    }   
+}

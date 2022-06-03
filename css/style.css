@@ -60,8 +60,8 @@ button:disabled {
     padding-right: 20px;
 }
 
-#input_surname, #input_surname_confirm {
-    width:95%;
+#input_surname, #input_surnameConfirmation {
+    width:100%;
 }
 
 #tr_submit_btn {

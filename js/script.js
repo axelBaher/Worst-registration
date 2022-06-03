@@ -7,19 +7,22 @@ function timer_reset() {
 function colorPush() {
     let min = 0;
     let max = 765;
-    document.getElementById("label_colorToPick").innerText = Math.floor(Math.random() * (max - min) + min);
+    let variable = Math.floor(Math.random() * (max - min) + min);
+    alert(variable);
+    document.getElementById("label_colorToPick").value = variable;
 }
 function colorTimer() {
     let x = document.getElementById("colorMatch").value;
     x = hexToRGB(x);
-    y = document.getElementById("label_colorToPick").innerText;
+    y = document.getElementById("label_colorToPick").value;
     if (x != y) {
         setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#ff2525"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
     }
     else {
         setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#2bf32b"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
         clearTimeout();
-        setTimeout(function () { document.getElementById("reg_email").disabled = false; setTimeout(function () { document.getElementById("reg_email").disabled = true; }, 7000); }, 700);
+        setTimeout(function () { document.getElementById("reg_email").disabled = false; setTimeout(
+            function () { document.getElementById("reg_email").disabled = true; }, 4000); }, 700);
     }
 
 
@@ -45,18 +48,7 @@ const validateEmail = (email) => {
     );
 };
 
-function inputSelect(inputIdx) {
-    if (inputIdx == 1)
-        document.getElementById("input_name").value = "";
-    if (inputIdx == 2) {
-        document.getElementById("reg_surname").value = "";
-        document.getElementById("reg_surname_confirm").value = "";
-    }
-    if (inputIdx == 3)
-        document.getElementById("reg_num").value = "";
-    if (inputIdx == 4)
-        document.getElementById("reg_email").value = "";
-}
+
 function radioButtonOnChange(buttonIdx) {
     if (buttonIdx === 1) {
         let fortnite = document.getElementById("checkbox_fortnite").checked;
