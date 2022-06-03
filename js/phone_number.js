@@ -1,8 +1,8 @@
 function hideSymbol() {
-    document.getElementById("label_symbol").style.color = lightcyan;
+    document.getElementById("label_symbol").style.display = "none";
 }
 function showSymbol() {
-    document.getElementById("label_symbol").style.color = black;
+    document.getElementById("label_symbol").style.display = "inline";
 }
 function btnSymbolUp() {
     document.getElementById("label_symbol").innerText = String.fromCharCode(document.getElementById("label_symbol").innerText.charCodeAt(0) + 1);
