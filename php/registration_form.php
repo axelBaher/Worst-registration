@@ -90,25 +90,166 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Откуда вы о нас узнали</th>
-                    <td colspan="2">
-                        <select  id="reg_heard" name="how_hear_about_us"
-                        onchange="selectOnChange()";> 
-                            <option onclick="randomError()">От друга</option>
-                            <option onclick="randomError()">Из интернета</option>
-                            <option onclick="randomError()">От коллег</option>
-                            <option onclick="randomError()">От другого вашего пользователя</option>
-                        </select>
+                    <th>Пароль</th>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_1"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_2"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password"  id="input_password_3"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_4"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_5"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_6"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_7"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_8"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_9"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_10"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_11"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_12"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_13"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_14"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_15"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_16"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_17"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_18"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_19"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_20"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_21"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_22"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_23"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_24"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_25"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_26"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_27"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_28"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_29"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_3"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_31"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_32"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_33"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_34"
+                                    type="password" autocomplete="off">
+                                </td>
+                                <td>
+                                    <input class="input" id="input_password" id="input_password_35"
+                                    type="password" autocomplete="off">
+                                </td>
+                            </tr>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="btn" id="submit_button"
+                        <button class="btn" id="button_submit"
                         onclick="randomError(); submitOnClick();"
                         type="submit">Регистрация</button>
                     </td>
                     <td>
-                        <button class="btn" id="submit_button"
+                        
+                    </td>
+                    <td>
+                        <button class="btn" id="button_reset"
                         onclick="clearForm()"
                         type="submit">Очистить поля</button>
                     </td>
