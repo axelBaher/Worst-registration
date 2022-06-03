@@ -19,12 +19,9 @@ function colorTimer() {
     else {
         setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#2bf32b"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
         clearTimeout();
-        setTimeout(function () {
-            document.getElementById("input_email").disabled = false; 
-            setTimeout( function () { 
-                document.getElementById("input_email").disabled = true; }, 4000);
-        }, 700);
+        setTimeout(function () { document.getElementById("input_email").disabled = false; setTimeout(function () { document.getElementById("input_email").disabled = true; }, 3000); }, 1200);
     }
+    colorPush();
 }
 function hexToRGB(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

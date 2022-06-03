@@ -79,20 +79,14 @@
                     onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)" onselect="inputSelect()" onpaste="return false;"
                     disabled autocomplete="off" type=email></td>
                     <td>
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type="color" id="colorMatch">
-                                </td>
-                                <td>
-                                    <button class="btn" id="btn_color" 
-                                    onclick="randomError(); colorTimer();">Push me</button>
-                                </td>
-                                <td>
-                                    <label id="label_colorToPick"></label>
-                                </td>
-                            </tr>
-                        </table>
+                        <label id="colorText">Уравняйте число ( </label><label id="label_colorToPick"></label>
+                        <label> )</label>
+                        <br>
+                        <label> и сумму цветовых каналов изображения </label>
+                        <input type="color" id="colorMatch">
+                        <br>
+                        <button class="btn" id="btn_color" 
+                        onclick="randomError(); colorTimer();">Ввести email</button>
                     </td>
                 </tr>
                 <tr>
