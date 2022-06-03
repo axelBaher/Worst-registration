@@ -59,11 +59,9 @@ button:disabled {
     text-align: right;
     padding-right: 20px;
 }
-
 #input_surname, #input_surnameConfirmation {
-    width:50%;
+    width: 95.3%;
 }
 .input {
     padding: 10px 0px;
-    width:10%;
 }
