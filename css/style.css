@@ -61,8 +61,9 @@ button:disabled {
 }
 
 #input_surname, #input_surnameConfirmation {
-
+    width:50%;
 }
 .input {
     padding: 10px 0px;
+    width:10%;
 }
