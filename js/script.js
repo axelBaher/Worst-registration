@@ -44,7 +44,7 @@ function close_button() {
 }
 const validateEmail = (email) => {
     return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*) | (\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\]) | (([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
 
@@ -155,11 +155,7 @@ function submitOnClick() {
     let number = document.getElementById("reg_num").value;
     let email = document.getElementById("reg_email").value;
     let heard = document.getElementById("reg_heard").selectedIndex;
-    if (Base64.decode(name).length < 1) {
-        alert("Введите имя!");
-        clearForm();
-        return;
-    }
+
     if (Base64.decode(surname).length < 1) {
         alert("Введите фамилию!");
         clearForm();

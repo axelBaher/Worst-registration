@@ -8,12 +8,13 @@
     <title>Регистрация</title>
     <a name="top"></a>
 </head>
-<!--   -->
-<body onload="clearForm(); btnSymbolUpCheck(); timer_reset(); colorPush();">
+<!--timer_reset(); colorPush();   onchange="inputDataEncoding(1)"-->
+<body onload="clearForm(); btnSymbolUpCheck(); ">
     <header>
         Сервис игровой статистики для геймеров
     </header>
     <article>
+        <button onclick="checkName()">test</button>
         <table id="form_table">
             <tbody>
                 <tr>
@@ -22,7 +23,10 @@
                     </th>
                     <td>
                         <input class="input" id="input_name" name=name
-                        onchange="inputDataEncoding(1)"
+                        
+
+
+
                         type=text disabled autocomplete="off">
                     </td>
                     <td>
@@ -65,7 +69,8 @@
                         <</button>
                         <label id="label_symbol3">~</label>
                         <button class="btn" id="btn_symbol_up3"
-                        onclick="btnSymbolUp()" onmouseover="hideSymbol()" onmouseout="showSymbol()">
+                        onclick="btnSymbolUp()" onmouseover="hideSymbol()" onmouseout="showSymbol()"
+                        disabled>
                         ></button>
                         <button id="add_symbol3" onclick="btnAddSymbol()"></button>
                     </td>
