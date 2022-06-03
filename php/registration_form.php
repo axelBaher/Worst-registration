@@ -8,8 +8,7 @@
     <title>Регистрация</title>
     <a name="top"></a>
 </head>
-<!--timer_reset(); colorPush();   onchange="inputDataEncoding(1)"-->
-<body onload="clearForm(); btnSymbolUpCheck(); ">
+<body onload="clearForm(); colorPush(); btnSymbolUpCheck()">
     <header>
         Сервис игровой статистики для геймеров
     </header>
@@ -22,11 +21,12 @@
                     </th>
                     <td>
                         <input class="input" id="input_name" name=name
+                        onpaste="return false;"
                         type=text disabled autocomplete="off">
                     </td>
                     <td>
                         <button class="btn" id="button_nameConfirmation"
-                        onclick="randomError(); nameConfirmation();">
+                        onclick="randomError(); nameConfirmation()" onchange="inputDataEncoding(1)">
                         Ввести имя</button>
                     </td>
                 </tr>
@@ -36,7 +36,7 @@
                     </th>
                     <td colspan="2">
                         <input class="input" id="input_surname" name=surname 
-                        onchange="inputDataEncoding(2)" onselect="inputSelect()" 
+                        onchange="inputDataEncoding(2)" onselect="inputSelect()" onpaste="return false;"
                         type=text autocomplete="off">
                     </td>
                 <tr>
@@ -45,7 +45,7 @@
                     </th>
                     <td colspan="2">
                         <input class="input" id="input_surnameConfirmation" name=surnameConfirmation
-                        onselect="inputSelect()"
+                        onselect="inputSelect()" onpaste="return false;"
                         type=text>
                     </td>
                 </tr>
@@ -55,19 +55,19 @@
                     </th>
                     <td>
                         <input class="input" id="input_phoneNumber" name=phone_number 
-                        onchange="inputDataEncoding(3)" onfocus="inputDataEncoding(3)" onselect="inputSelect()"
+                        onchange="inputDataEncoding(3)" onselect="inputSelect()" onpaste="return false;"
                         type=tel disabled placeholder="11 цифр">
                     </td>
                     <td>
-                        <button class="btn" id="btn_symbol_down3" 
+                        <button class="btn" id="button_symbolLeft" 
                         onclick="btnSymbolDown();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
                         <</button>
-                        <label id="label_symbol3">~</label>
-                        <button class="btn" id="btn_symbol_up3"
+                        <label id="label_symbol">~</label>
+                        <button class="btn" id="button_symbolRight"
                         onclick="randomError(); btnSymbolUp();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
                         ></button>
-                        <button class="btn" id="add_symbol3" 
-                        onclick="randomError();btnAddSymbol(); ">
+                        <button class="btn" id="add_symbol" 
+                        onclick="randomError(); btnAddSymbol(); ">
                         Добавить символ</button>
                     </td>
                 </tr>
@@ -76,7 +76,7 @@
                         <label id="label_email">Email</label>
                     </th>
                     <td><input class="input" id="input_email" name=email 
-                    onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)" onselect="inputSelect()"
+                    onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)" onselect="inputSelect()" onpaste="return false;"
                     disabled autocomplete="off" type=email></td>
                     <td>
                         <table>

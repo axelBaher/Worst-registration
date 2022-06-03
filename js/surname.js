@@ -1,4 +1,9 @@
-function close_button() {
-    document.getElementById("row_to_hide1").style.display = 'none';
-    document.getElementById("row_to_hide2").style.display = 'none';
+function checkSurname() {
+    let surname = document.getElementById("input_surname").value;
+    let surnameConfirm = document.getElementById("input_surnameConfirmation").value;
+    if (surnameConfirm != surname) {
+        alert("Поля фамилий не совпадают по значениям!");
+        clearForm();
+        return;
+    }
 }

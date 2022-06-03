@@ -5,8 +5,6 @@ function submitOnClick() {
     let pubg = document.getElementById("checkbox_pubg").checked;
 
     let name = document.getElementById("input_name").value;
-    let surname = document.getElementById("reg_surname").value;
-    let surnameConfirm = document.getElementById("reg_surname_confirm").value;
     let number = document.getElementById("reg_num").value;
     let email = document.getElementById("reg_email").value;
     let heard = document.getElementById("reg_heard").selectedIndex;
@@ -16,11 +14,7 @@ function submitOnClick() {
         clearForm();
         return;
     }
-    if (surnameConfirm != surname) {
-        alert("Поля фамилий не совпадают по значениям!");
-        clearForm();
-        return;
-    }
+    
     if (isNaN(Base64.decode(number))) {
         alert("В номере недопустимые символы!");
         clearForm();

@@ -3,31 +3,27 @@ const validateEmail = (email) => {
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*) | (\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\]) | (([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
-function timer_reset() {
-    var t;
-    t = clearTimeout(t);
-    t = setTimeout("close_button()", 3000);
-
-}
 function colorPush() {
     let min = 0;
     let max = 765;
     let variable = Math.floor(Math.random() * (max - min) + min);
-    alert(variable);
-    document.getElementById("label_colorToPick").value = variable;
+    document.getElementById("label_colorToPick").innerText = variable;
 }
 function colorTimer() {
     let x = document.getElementById("colorMatch").value;
     x = hexToRGB(x);
-    y = document.getElementById("label_colorToPick").value;
+    y = document.getElementById("label_colorToPick").innerText;
     if (x != y) {
         setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#ff2525"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
     }
     else {
         setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#2bf32b"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
         clearTimeout();
-        setTimeout(function () { document.getElementById("reg_email").disabled = false; setTimeout(
-            function () { document.getElementById("reg_email").disabled = true; }, 4000); }, 700);
+        setTimeout(function () {
+            document.getElementById("input_email").disabled = false; 
+            setTimeout( function () { 
+                document.getElementById("input_email").disabled = true; }, 4000);
+        }, 700);
     }
 }
 function hexToRGB(hex) {

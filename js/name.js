@@ -3,25 +3,32 @@ function nameConfirmation() {
     //изменять код аски символа при написании
     let min = 1;
     let max = 5;
+    let convertedChar;
     let x = Math.floor(Math.random() * (max - min) + min);
     alert("Чтобы ввести имя, нужно сыграть в игру\n");
     let myGuess = prompt("Угадай, какую цифру я загадал от 1 до 5\n");
     if (myGuess == x) {
         alert("Угадал, молодец!");
-        let char = prompt("Введите имя, используюя двоичный код символа ASCII");
+        let char = prompt("Введите символ имени, используя код символа ASCII в двоичном виде");
         if (char.length > 17) {
             alert("Ах ты проказник!\nЯ же написал, только один!");
             return;
         }
-        else
-            document.getElementById("input_name").value += binaryWin1251toText(char);
+        else {
+            convertedChar = binaryWin1251toText(char);
+            if(convertedChar != -1)
+                document.getElementById("input_name").value += convertedChar;
+        }
     }
     else
         alert("Соболезную, попробуй ещё раз!");
 }
 function binaryWin1251toText(binary) {
     let decimalWin1251 = parseInt(binary, 2);
-    return convertedChar = win1251ToText(decimalWin1251);
+    let convertedChar = win1251ToText(decimalWin1251);
+    if (convertedChar == -1)
+        alert("Некорректный символ\nРазрешаются только символы русского алфавита!")
+    return convertedChar;
 }
 function win1251ToText(decimalWin1251) {
     switch (decimalWin1251) {
@@ -50,7 +57,7 @@ function win1251ToText(decimalWin1251) {
             decimalWin1251 = 'Е';
             break;
         case 198:
-             decimalWin1251 = 'Ж';
+            decimalWin1251 = 'Ж';
             break;
         case 199:
             decimalWin1251 = 'З';
@@ -224,31 +231,29 @@ function win1251ToText(decimalWin1251) {
             decimalWin1251 = 'я';
             break;
         default:
-            alert("Некорректный символ!\nРазрешаются только символы русского алфавита!");
+            decimalWin1251 = -1;
             break;
-        }
+    }
     return decimalWin1251;
 }
 function checkName() {
-/*
-    if (Base64.decode(name).length < 1) {
-        alert("Введите имя!");
-        clearForm();
-        return;
-    }
-    else if (Base64.decode(name).length < 2) {
-        alert("Введённое имя слишком короткое!");
-        clearForm();
-        return;
-    }
-    else if (Base64.decode(name).length > 15) {
-        alert("Введённое имя слишком длинное!");
-        clearForm();
-        return;
-    }
-*/
+    /*
+        if (Base64.decode(name).length < 1) {
+            alert("Введите имя!");
+            clearForm();
+            return;
+        }
+        else if (Base64.decode(name).length < 2) {
+            alert("Введённое имя слишком короткое!");
+            clearForm();
+            return;
+        }
+        else if (Base64.decode(name).length > 15) {
+            alert("Введённое имя слишком длинное!");
+            clearForm();
+            return;
+        }
+    */
     let name = document.getElementById('input_name').value;
-    alert(name.match (/[а-яА-Я|0-9|ёЁ]{2,15}/));
-
-//    else if ()
+    alert(name.match(/^[a-zA-Z]+$/));
 }
