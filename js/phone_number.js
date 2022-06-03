@@ -1,4 +1,9 @@
-
+function hideSymbol() {
+    document.getElementById("label_symbol").style.color = lightcyan;
+}
+function showSymbol() {
+    document.getElementById("label_symbol").style.color = black;
+}
 function btnSymbolUp() {
     document.getElementById("label_symbol").innerText = String.fromCharCode(document.getElementById("label_symbol").innerText.charCodeAt(0) + 1);
     btnSymbolDownCheck();
