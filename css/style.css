@@ -66,7 +66,3 @@ button:disabled {
 #button_submit, #button_reset {
     width: 90%;
 }
-#input_password {
-    margin: 0 -80px;
-    width: 10%;
-}

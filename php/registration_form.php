@@ -8,7 +8,7 @@
     <title>Регистрация</title>
     <a name="top"></a>
 </head>
-<body onload="clearForm(); colorPush(); btnSymbolUpCheck()">
+<body onload="colorPush(); clearForm();  btnSymbolUpCheck()">
     <header>
         Сервис игровой статистики для геймеров
     </header>
@@ -95,46 +95,10 @@
                         <table>
                             <tr>
                                 <td>
-                                    <input class="input" id="input_password" id="input_password_1"
+                                    <input class="input" id="input_password"
+                                    onkeyup="document.getElementById('input_password').blur();" onselect="document.getElementById('input_password').blur();" onpaste="return false;"
                                     type="password" autocomplete="off">
                                 </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_2"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password"  id="input_password_3"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_4"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_5"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_6"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_7"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_8"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_9"
-                                    type="password" autocomplete="off">
-                                </td>
-                                <td>
-                                    <input class="input" id="input_password" id="input_password_10"
-                                    type="password" autocomplete="off">
-                                </td>
-                            </tr>
                         </table>
 
                     </td>
