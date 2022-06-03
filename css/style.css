@@ -63,10 +63,6 @@ button:disabled {
 #input_surname, #input_surnameConfirmation {
     width:100%;
 }
-
-#tr_submit_btn {
-    text-align: center;
-}
 .input {
     padding: 10px 0px;
 }

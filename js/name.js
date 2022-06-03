@@ -1,10 +1,12 @@
 function nameConfirmation() {
+    //добавить возможность ошибки
+    //изменять код аски символа при написании
     let min = 1;
     let max = 5;
     let x = Math.floor(Math.random() * (max - min) + min);
     alert("Чтобы ввести имя, нужно сыграть в игру\n");
     let myGuess = prompt("Угадай, какую цифру я загадал от 1 до 5\n");
-    if (myGuess != x) {
+    if (myGuess == x) {
         alert("Угадал, молодец!");
         let char = prompt("Введите имя, используюя двоичный код символа ASCII");
         if (char.length > 17) {
@@ -12,9 +14,7 @@ function nameConfirmation() {
             return;
         }
         else
-        {
             document.getElementById("input_name").value += binaryWin1251toText(char);
-        }
     }
     else
         alert("Соболезную, попробуй ещё раз!");

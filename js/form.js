@@ -3,12 +3,7 @@ function clearForm() {
     document.getElementById("input_surname").value = "";
     document.getElementById("input_surnameConfirmation").value = "";
     document.getElementById("input_phoneNumber").value = "";
-    document.getElementById("label_symbol3").value = "!";
     document.getElementById("input_email").value = "";
-    document.getElementById("checkbox_fortnite").checked = false;
-    document.getElementById("checkbox_league_of_legends").checked = false;
-    document.getElementById("checkbox_overwatch").checked = false;
-    document.getElementById("checkbox_pubg").checked = false;
     document.getElementById("reg_heard").selectedIndex = -1;
 }
 function inputDataEncoding(inputIdx) {
@@ -29,20 +24,20 @@ function inputDataEncoding(inputIdx) {
             break;
     }
 }
-function inputSelect(inputIdx) {
-    switch (inputIdx) {
-        case 1:
-            document.getElementById("input_name").value = "";
-            break;
-        case 2:
-            document.getElementById("input_surname").value = "";
-            document.getElementById("input_surnameConfirmation").value = "";
-            break;
-        case 3:
-            document.getElementById("input_phoneNumber").value = "";
-            break;
-        case 4:
-            document.getElementById("input_email").value = "";
-            break;
-    }   
+function inputSelect() {
+    document.getElementById("input_name").value = "";
+    document.getElementById("input_surname").value = "";
+    document.getElementById("input_surnameConfirmation").value = "";
+    document.getElementById("input_phoneNumber").value = "";
+    document.getElementById("input_email").value = "";
+}
+function randomError() {
+    let min = 1;
+    let max = 100;
+    let x = Math.floor(Math.random() * (max - min) + min);
+    if (x == 1)
+    {
+        alert("Ошибка!\nВынужденная перезагрузка страницы!");
+        history.go(0);
+    }
 }

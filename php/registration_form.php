@@ -14,7 +14,6 @@
         Сервис игровой статистики для геймеров
     </header>
     <article>
-        <button onclick="checkName()">test</button>
         <table id="form_table">
             <tbody>
                 <tr>
@@ -23,15 +22,11 @@
                     </th>
                     <td>
                         <input class="input" id="input_name" name=name
-                        
-
-
-
                         type=text disabled autocomplete="off">
                     </td>
                     <td>
                         <button class="btn" id="button_nameConfirmation"
-                        onclick="nameConfirmation()">
+                        onclick="randomError(); nameConfirmation();">
                         Ввести имя</button>
                     </td>
                 </tr>
@@ -41,7 +36,7 @@
                     </th>
                     <td colspan="2">
                         <input class="input" id="input_surname" name=surname 
-                        onchange="inputDataEncoding(2)" onselect="inputSelect(2)" 
+                        onchange="inputDataEncoding(2)" onselect="inputSelect()" 
                         type=text autocomplete="off">
                     </td>
                 <tr>
@@ -50,7 +45,7 @@
                     </th>
                     <td colspan="2">
                         <input class="input" id="input_surnameConfirmation" name=surnameConfirmation
-                        onselect="inputSelect(2)"
+                        onselect="inputSelect()"
                         type=text>
                     </td>
                 </tr>
@@ -59,32 +54,43 @@
                         <label id="label_num">Номер телефона</label>
                     </th>
                     <td>
-                        <input class="input" id="reg_num" name=phone_number 
-                        onchange="inputDataEncoding(3)" onfocus="inputDataEncoding(3)" onselect="inputSelect(3)"
-                        type=tel disabled placeholder="81234567890">
+                        <input class="input" id="input_phoneNumber" name=phone_number 
+                        onchange="inputDataEncoding(3)" onfocus="inputDataEncoding(3)" onselect="inputSelect()"
+                        type=tel disabled placeholder="11 цифр">
                     </td>
                     <td>
                         <button class="btn" id="btn_symbol_down3" 
-                        onclick="btnSymbolDown()" onmouseover="hideSymbol()" onmouseout="showSymbol()">
+                        onclick="btnSymbolDown();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
                         <</button>
                         <label id="label_symbol3">~</label>
                         <button class="btn" id="btn_symbol_up3"
-                        onclick="btnSymbolUp()" onmouseover="hideSymbol()" onmouseout="showSymbol()"
-                        disabled>
+                        onclick="randomError(); btnSymbolUp();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
                         ></button>
-                        <button id="add_symbol3" onclick="btnAddSymbol()"></button>
+                        <button class="btn" id="add_symbol3" 
+                        onclick="randomError();btnAddSymbol(); ">
+                        Добавить символ</button>
                     </td>
                 </tr>
                 <tr>
-                    <th><label id="label_email">Email</label></th>
-                    <td><input class="input" disabled autocomplete="off" onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)"
-                            onselect="inputSelect(4)" type=email id="reg_email" name=email></td>
+                    <th>
+                        <label id="label_email">Email</label>
+                    </th>
+                    <td><input class="input" id="input_email" name=email 
+                    onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)" onselect="inputSelect()"
+                    disabled autocomplete="off" type=email></td>
                     <td>
                         <table>
                             <tr>
-                                <td><input type="color" id="colorMatch"></td>
-                                <td><button class="btn" id="btn_color" onclick="colorTimer()">Push me</button></td>
-                                <td><input id="label_colorToPick"></input></td>
+                                <td>
+                                    <input type="color" id="colorMatch">
+                                </td>
+                                <td>
+                                    <button class="btn" id="btn_color" 
+                                    onclick="randomError(); colorTimer();">Push me</button>
+                                </td>
+                                <td>
+                                    <label id="label_colorToPick"></label>
+                                </td>
                             </tr>
                         </table>
                     </td>
@@ -92,17 +98,25 @@
                 <tr>
                     <th>Откуда вы о нас узнали</th>
                     <td colspan="2">
-                        <select onchange="selectOnChange()" name="how_hear_about_us" id="reg_heard">
-                            <option>От друга</option>
-                            <option>Из интернета</option>
-                            <option>От коллег</option>
-                            <option>От другого вашего пользователя</option>
+                        <select  id="reg_heard" name="how_hear_about_us"
+                        onchange="selectOnChange()";> 
+                            <option onclick="randomError()">От друга</option>
+                            <option onclick="randomError()">Из интернета</option>
+                            <option onclick="randomError()">От коллег</option>
+                            <option onclick="randomError()">От другого вашего пользователя</option>
                         </select>
                     </td>
                 </tr>
-                <tr id="tr_submit_btn">
-                    <td colspan="3"><button type="submit" onclick="submitOnClick()" class="btn"
-                            id="submit_button">Регистрация</button>
+                <tr>
+                    <td>
+                        <button class="btn" id="submit_button"
+                        onclick="randomError(); submitOnClick();"
+                        type="submit">Регистрация</button>
+                    </td>
+                    <td>
+                        <button class="btn" id="submit_button"
+                        onclick="clearForm()"
+                        type="submit">Очистить поля</button>
                     </td>
                 </tr>
         </table>
