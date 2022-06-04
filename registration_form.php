@@ -440,17 +440,30 @@
             return true;
         }
         function check_password() {
-            let password = document.getElementById("input_password").value;
-            alert(password);
+            var p = document.getElementById('input_password').value,
+                errors = [];
+            if (p.length < 8) {
+                errors.push("Your password must be at least 8 characters"); 
+            }
+            if (p.search(/[a-z]/i) < 0) {
+                errors.push("Your password must contain at least one letter.");
+            }
+            if (p.search(/[0-9]/) < 0) {
+                errors.push("Your password must contain at least one digit."); 
+            }
+            if (errors.length > 0) {
+                alert(errors.join("\n"));
+                return false;
+            }
+            return true;
         }
-        function checkForm() {
-            if(check_name() && check_surname() && check_phoneNumber() && check_email())
-                alert("Регистрация успешно пройдена!");
+        function check_form() {
+            if(!(check_name() || check_surname() || check_phoneNumber() || check_email() || check_password()))
+                alert("Ошибка при подтверждении регистрации!");
             else
-                alert("Ошибка во время подтверждения регистрации!");
-            clearForm();
+                alert("Регистрация успешно подтверждена");
         }
-    </script>        
+    </script>
 
     <title>Регистрация</title>
 </head>
@@ -552,7 +565,7 @@
                     </td>
                     <td>
                         <button class="btn" id="check_form"
-                        onclick="check_password();checkForm();  randomError();"
+                        onclick="check_form(); randomError();"
                         >Проверить поля</button>
                     </td>
                     <td>
