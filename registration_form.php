@@ -10,6 +10,89 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
+    <style>
+        body {
+        font-size: 14pt;
+        background-color: lightcyan;
+        color: #123;
+        }
+        header {
+            font-size: 20pt;
+            background-color: rgb(109, 204, 236);
+            text-align: center;
+            padding: 10px 10px;
+            margin-bottom: 50px;
+        }
+        .btn {
+            transition-duration: 0.4s;
+            background-color: rgb(182, 182, 182);
+            color: black;
+            border: none;
+            padding: 10px 24px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #2bcc2b;
+            color: black;
+            cursor: pointer;
+        }
+        .btn:hover:disabled {
+          background-color: #ff2525;
+          color: black;
+          cursor:default;
+        }
+        button:disabled {
+          background-color: #ff2525;
+          cursor:default;
+        }
+        #for_table {
+            text-align: center;
+        }
+        #form_table {
+            margin: auto;
+            border-collapse: separate; 
+        }
+        #form_table {
+            border: 1px #123 solid;
+        }
+        #form_table td {
+            text-align: center;
+        }
+        #form_table th {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .input {
+            padding: 10px 0px;
+            width: 100%;
+        }
+        #button_submit, #button_reset {
+            width: 90%;
+        }
+        :root {
+            cursor: none;
+            --cursorX: 50vw;
+            --cursorY: 50vh;
+        }
+          :root:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            pointer-events: none;
+            background: radial-gradient(
+              circle 4vmax at var(--cursorX) var(--cursorY),
+              rgba(0,0,0,0) 20%,
+              rgba(0,0,0,.5) 75%,
+              rgba(0,0,0,.99) 100%
+            )
+        }
+    </style>
+
     <script>
         $(document).ready(function () {
             $("#button_submit_form").on("click", function () {
@@ -463,6 +546,16 @@
             else
                 alert("Регистрация успешно подтверждена");
         }
+        function update(e){
+            var x = e.clientX || e.touches[0].clientX
+            var y = e.clientY || e.touches[0].clientY
+
+            document.documentElement.style.setProperty('--cursorX', x + 'px')
+            document.documentElement.style.setProperty('--cursorY', y + 'px')
+            }
+  
+        document.addEventListener('mousemove',update)
+        document.addEventListener('touchmove',update)
     </script>
 
     <title>Регистрация</title>
