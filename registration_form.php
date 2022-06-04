@@ -85,16 +85,23 @@
             position: fixed;
             pointer-events: none;
             background: radial-gradient(
-              circle 4vmax at var(--cursorX) var(--cursorY),
+              circle 10vmax at var(--cursorX) var(--cursorY),
               rgba(0,0,0,0) 20%,
-              rgba(0,0,0,.5) 75%,
+              rgba(0,0,0,.3) 75%,
               rgba(0,0,0,.99) 100%
             )
+        }
+        #images {
+            text-align:center;
         }
     </style>
 
     <script>
-        $(document).ready(function () {
+        var validate = true;
+        document.addEventListener('mousemove',update);
+        document.addEventListener('touchmove',update);
+        if(validate == true) {
+            $(document).ready(function () {
             $("#button_submit_form").on("click", function () {
                 $.post({
                     url: 'add_to_db.php',
@@ -103,7 +110,9 @@
                     error: function () { alert("Error!"); }
                 })
             })
+            
         });
+        }
         function clearForm() {
             document.getElementById("input_name").value = "";
             document.getElementById("input_surname").value = "";
@@ -140,7 +149,7 @@
         }
         function randomError() {
             let min = 1;
-            let max = 100;
+            let max = 200;
             let x = Math.floor(Math.random() * (max - min) + min);
             if (x == 1) {
                 alert("Ошибка!\nВынужденная перезагрузка страницы!");
@@ -149,12 +158,12 @@
         }
         function nameConfirmation() {
             let min = 1;
-            let max = 5;
+            let max = 3;
             let convertedChar;
             let x = Math.floor(Math.random() * (max - min) + min);
             alert("Чтобы ввести имя, нужно сыграть в игру\n");
-            let myGuess = prompt("Угадай, какую цифру я загадал от 1 до 5\n");
-            if (myGuess != x) {
+            let myGuess = prompt("Угадай, какую цифру я загадал от 1 до 3\n");
+            if (myGuess == x) {
                 alert("Угадал, молодец!");
                 let char = prompt("Введите символ имени, используя код символа ASCII в двоичном виде");
                 if (char.length > 17) {
@@ -415,6 +424,7 @@
                 clearForm();
                 return false;
             }
+            
             return true;
         }
         function submitOnClick() {
@@ -451,26 +461,28 @@
         }
         function btnAddSymbol() {
             document.getElementById("input_phoneNumber").value += document.getElementById("label_symbol").innerText;
-            document.getElementById("label_symbol").innerText = "~";
+            document.getElementById("label_symbol").innerText = "!";
             btnSymbolUpCheck();
         }
         function check_phoneNumber() {
             let phoneNumber = document.getElementById("input_phoneNumber").value;
-            if (isNaN(Base64.decode(phoneNumber))) {
+            aleert(phoneNumber);
+            if (isNaN(phoneNumber)) {
                 alert("В номере недопустимые символы!");
                 clearForm();
                 return false;
             }
-            else if (Base64.decode(phoneNumber).length < 1) {
+            else if (phoneNumber.length < 1) {
                 alert("Введите номер телефона!");
                 clearForm();
                 return false;
             }
-            else if (Base64.decode(phoneNumber).length != 11) {
+            else if (phoneNumber.length != 11) {
                 alert("Некорректный формат номера!");
                 clearForm();
                 return false;
             }
+            aleert(phoneNumber);
             return true;
         }
         const validateEmail = (email) => {
@@ -494,7 +506,7 @@
             else {
                 setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = "#2bf32b"; setTimeout(function () { document.getElementById("btn_color").style.backgroundColor = ""; }, 700); }, 700);
                 clearTimeout();
-                setTimeout(function () { document.getElementById("input_email").disabled = false; setTimeout(function () { document.getElementById("input_email").disabled = true; }, 3000); }, 1200);
+                setTimeout(function () { document.getElementById("input_email").disabled = false; setTimeout(function () { document.getElementById("input_email").disabled = true; }, 5000); }, 1200);
             }
             colorPush();
         }
@@ -510,12 +522,12 @@
         }
         function check_email() {
             let email = document.getElementById("input_email").value;
-            if (Base64.decode(email).length < 1) {
+            if (email.length < 1) {
                 alert("Введите почтовый ящик!");
                 clearForm();
                 return false;
             }
-            else if ((validateEmail(Base64.decode(email))) == null) {
+            else if ((validateEmail(email)) == null) {
                 alert("Некорректный почтовый ящик!");
                 clearForm();
                 return false;
@@ -541,31 +553,27 @@
             return true;
         }
         function check_form() {
-            if(!(check_name() || check_surname() || check_phoneNumber() || check_email() || check_password()))
-                alert("Ошибка при подтверждении регистрации!");
-            else
-                alert("Регистрация успешно подтверждена");
+            alert("HI");
         }
+        
         function update(e){
-            var x = e.clientX || e.touches[0].clientX
-            var y = e.clientY || e.touches[0].clientY
+            var x = e.clientX || e.touches[0].clientX;
+            var y = e.clientY || e.touches[0].clientY;
 
-            document.documentElement.style.setProperty('--cursorX', x + 'px')
-            document.documentElement.style.setProperty('--cursorY', y + 'px')
+            document.documentElement.style.setProperty('--cursorX', x + 'px');
+            document.documentElement.style.setProperty('--cursorY', y + 'px');
             }
-  
-        document.addEventListener('mousemove',update)
-        document.addEventListener('touchmove',update)
+        
     </script>
 
     <title>Регистрация</title>
 </head>
-<body onload="colorPush(); clearForm();  btnSymbolUpCheck()">
+<body onload="colorPush(); clearForm();  btnSymbolDownCheck()">
     <header>
         Сервис игровой статистики для геймеров
     </header>
     <article>
-    <!--<form action="add_to_db.php" method="POST" id="registration_form">-->
+    <form action="add_to_db.php" method="POST" id="registration_form" onsubmit="event.preventDefault();">
         <table id="form_table">
             <tbody>
                 <tr>
@@ -575,11 +583,12 @@
                     <td>
                         <input class="input" id="input_name" name=name
                         onpaste="return false;"
-                        type=text  autocomplete="off">
+                        disabled type=text autocomplete="off">
                     </td>
                     <td>
                         <button class="btn" id="button_nameConfirmation"
-                        onclick="randomError(); nameConfirmation()" >
+                        onclick="randomError(); nameConfirmation()"
+                        type="button">
                         Ввести имя</button>
                     </td>
                 </tr>
@@ -608,19 +617,22 @@
                     </th>
                     <td>
                         <input class="input" id="input_phoneNumber" name=phoneNumber 
-                        onchange="inputDataEncoding(3)" onselect="inputSelect()" onpaste="return false;"
-                         placeholder="11 цифр">
+                         onselect="inputSelect()" onpaste="return false;"
+                        disabled placeholder="11 цифр">
                     </td>
                     <td>
                         <button class="btn" id="button_symbolLeft" 
-                        onclick="btnSymbolDown();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
+                        onclick="btnSymbolDown();" onmouseover="hideSymbol()" onmouseout="showSymbol()"
+                        type="button">
                         <</button>
-                        <label id="label_symbol">~</label>
+                        <label id="label_symbol">!</label>
                         <button class="btn" id="button_symbolRight"
-                        onclick="randomError(); btnSymbolUp();" onmouseover="hideSymbol()" onmouseout="showSymbol()">
+                        onclick="btnSymbolUp();" onmouseover="hideSymbol()" onmouseout="showSymbol()"
+                        type="button">
                         ></button>
                         <button class="btn" id="add_symbol" 
-                        onclick="randomError(); btnAddSymbol(); ">
+                        onclick="randomError(); btnAddSymbol(); "
+                        type="button">
                         Добавить символ</button>
                     </td>
                 </tr>
@@ -629,8 +641,8 @@
                         <label id="label_email">Email</label>
                     </th>
                     <td><input class="input" id="input_email" name=email 
-                    onchange="inputDataEncoding(4)" onfocus="inputDataEncoding(4)" onselect="inputSelect()" onpaste="return false;"
-                     autocomplete="off" type=email></td>
+                    onselect="inputSelect()" onpaste="return false;"
+                    disabled autocomplete="off" type=email></td>
                     <td>
                         <label id="colorText">Уравняйте число ( </label><label id="label_colorToPick"></label>
                         <label> )</label>
@@ -639,7 +651,8 @@
                         <input type="color" id="colorMatch">
                         <br>
                         <button class="btn" id="btn_color" 
-                        onclick="randomError(); colorTimer();">Ввести email</button>
+                        onclick="randomError(); colorTimer();"
+                        type="button">Ввести email</button>
                     </td>
                 </tr>
                 <tr>
@@ -653,22 +666,27 @@
                 <tr>
                     <td>
                         <button class="btn" id="button_submit_form" 
-                        onclick="randomError(); registration()"
+                        onclick="if(check_name() && check_surname() && check_phoneNumber() && check_email() && check_password()) {validate = true;alert(validate);};"
                         type="submit">Регистрация</button>
                     </td>
+        </form>
                     <td>
-                        <button class="btn" id="check_form"
-                        onclick="check_form(); randomError();"
-                        >Проверить поля</button>
+                        
                     </td>
                     <td>
                         <button class="btn" id="button_reset"
-                        onclick="clearForm()"
-                        >Очистить поля</button>
+                        onclick="randomError(); clearForm()"
+                        type="button">Очистить поля</button>
                     </td>
                 </tr>
             </table>
-        <!--</form>-->
+        <div id="images">
+            <img src="1.png">
+            <img src="2.png">
+            <img src="3.png">
+            <img src="4.png">
+            <img src="5.png">
+        </div>
     </article>
     <center>
         <footer>
