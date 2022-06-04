@@ -4,7 +4,7 @@ function clearForm() {
     document.getElementById("input_surnameConfirmation").value = "";
     document.getElementById("input_phoneNumber").value = "";
     document.getElementById("input_email").value = "";
-    document.getElementById("reg_heard").selectedIndex = -1;
+    document.getElementById("input_password").value = "";
 }
 function inputDataEncoding(inputIdx) {
     switch (inputIdx) {
@@ -30,6 +30,7 @@ function inputSelect() {
     document.getElementById("input_surnameConfirmation").value = "";
     document.getElementById("input_phoneNumber").value = "";
     document.getElementById("input_email").value = "";
+    document.getElementById("input_password").value = "";
 }
 function randomError() {
     let min = 1;
