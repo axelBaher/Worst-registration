@@ -670,5 +670,10 @@
             </table>
         <!--</form>-->
     </article>
+    <center>
+        <footer>
+            <a href="https://github.com/axelBaher/Worst-registration" target="_blank">GitHub repository</a>
+        </footer>
+    </center>
 </body>
 </html>
