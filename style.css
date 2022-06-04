@@ -1,0 +1,68 @@
+body {
+    font-size: 14pt;
+    background-color: lightcyan;
+    color: #123;
+}
+header {
+    font-size: 20pt;
+    background-color: rgb(109, 204, 236);
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    transition-duration: 0.4s;
+    background-color: rgb(182, 182, 182);
+    color: black;
+    border: none;
+    padding: 10px 24px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #2bcc2b;
+    color: black;
+    cursor: pointer;
+}
+.btn:hover:disabled {
+  background-color: #ff2525;
+  color: black;
+  cursor:default;
+}
+
+button:disabled {
+  background-color: #ff2525;
+  cursor:default;
+}
+#for_table {
+    text-align: center;
+}
+
+#form_table {
+    margin: auto;
+    border-collapse: separate; 
+}
+
+#form_table {
+    border: 1px #123 solid;
+}
+
+#form_table td {
+    text-align: center;
+}
+
+#form_table th {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+}
+.input {
+    padding: 10px 0px;
+    width: 100%;
+}
+#button_submit, #button_reset {
+    width: 90%;
+}
