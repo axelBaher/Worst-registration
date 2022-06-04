@@ -61,7 +61,7 @@ button:disabled {
 }
 .input {
     padding: 10px 0px;
-    width: 110%;
+    width: 100%;
 }
 #button_submit, #button_reset {
     width: 90%;
